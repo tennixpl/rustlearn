@@ -12,7 +12,7 @@ fn main() {
     // The gen_range method takes a range expression as an argument and generates a random number in the range.
     // u32 inferred from later `.cmp` statement
 
-    println!("The secret number is: {secret_number}");
+    //println!("The secret number is: {secret_number}");
 
 
     loop {
@@ -31,14 +31,23 @@ fn main() {
             .expect("Failed to read line"); // error handling, what would cause this? 
 
         // Turn 'guess' into an unsigned int
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => { 
+                println!("Please type a number!");
+                continue;
+            }
+        };
 
         println!("You guessed: {guess}");
 
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => println!("You win!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
         }
     }
 
