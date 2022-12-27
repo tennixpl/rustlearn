@@ -10,3 +10,4 @@
 https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html
 `cargo new guessing_game` t ocreate guessign game from rust book lesson 2
 
+`cargo doc --open` opens a web browser of all current crates
