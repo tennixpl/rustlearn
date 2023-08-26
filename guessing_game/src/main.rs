@@ -12,7 +12,7 @@ fn main() {
     // The gen_range method takes a range expression as an argument and generates a random number in the range.
     // u32 inferred from later `.cmp` statement
 
-    //println!("The secret number is: {secret_number}");
+    // println!("The secret number is: {secret_number}");
 
 
     loop {
